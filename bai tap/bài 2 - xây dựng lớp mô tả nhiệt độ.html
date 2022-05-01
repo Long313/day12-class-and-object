@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Temperature{
+            constructor(c){
+            this.c = c;
+        }
+        convertToFahrenheit(){
+            return this.c*1.8+32;
+        }
+        convertToKelvin(){
+            return this.c + 273;
+        }
+    }
+        let temperature = new Temperature(37);
+        console.log(temperature);
+        console.log(temperature.convertToKevil());
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Remote {
+        constructor(ID,volume) {
+          this.id = ID;
+          this.volume =volume;
+        }
+        switchChannel(channel) {
+          this.channel = channel;
+          alert("Current channel is " + this.channel);
+        }
+        controlVolume(att, numb) {
+          if (att == "increase") {
+            this.volume += numb;
+            alert("Volume current is " + this.volume);
+          } else if (att == "decrease") {
+            this.volume -= numb;
+            alert("Volume current is " + this.volume);
+          }
+        }
+        getStatus(status){
+            alert(status);
+        }
+      }
+      let remote = new Remote('ID001',50)
+      class Tivi{
+          constructor(channel,volume,status){
+              this.channel = channel;
+              this.volume = volume;
+              this.status = status;
+          }
+          getChannel(){
+              alert("This is " + this.channel + " channel");
+          }
+          getVolume(){
+              alert("Volume is now " + this.volume);
+          }
+          getStatus(){
+              alert("Tivi is " + this.status);
+          }
+          changeChannel(newChannel){
+            alert("Current channel is " + newChannel);
+          }
+          changeVolume(prop,num){
+            if(prop == 'increase'){
+                this.volume+=num;
+                alert("Current volume is "+ this.volume);
+            } else if(prop == 'decrease'){
+                this.volume -=num;
+                alert("Current volume is "+ this.volume);
+            }
+          }
+      }
+      let tivi = new Tivi('HVTV',50,"turn on");
+      function action(){
+        tivi.getStatus();
+        tivi.changeChannel(7);
+        remote.switchChannel(3);
+        remote.controlVolume('increase',2);
+        remote.getStatus('turn off');
+      }
+      action();
+    </script>
+  </body>
+</html>

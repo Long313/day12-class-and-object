@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      id="inputWidth"
+      onkeyup='getValue("firstName",this)'
+      name="width"
+      placeholder="Enter the width"
+    />
+    <input
+      id="inputHeight"
+      onkeyup='getValue("secondName",this)'
+      name="height"
+      placeholder="Enter the height"
+    />
+    <button id="btn">Draw</button>
+    <br>
+    <canvas
+    id="myCanvas"
+    width="300"
+    height="200"
+    style="border: 1px solid black"
+    ></canvas>
+    <div id="result"></div>
+    <script>
+      let canvas = document.getElementById("myCanvas");
+      let result = document.getElementById("result");
+      let btn = document.getElementById('btn');
+      var width, height;
+      function getValue(name, obj){
+        switch (name) {
+          case "firstName":
+            width = parseInt(obj.value);
+            break;
+          case "secondName":
+            height = parseInt(obj.value);
+            break;
+        }
+      
+      class Rectangle {
+        constructor(width, height) {
+          this.width = width;
+          this.height = height;
+        }
+        getPerimeter() {
+          return (this.width + this.height) * 2;
+        }
+        getArea() {
+          return this.width * this.height;
+        }
+        drawRect() {
+          let context = canvas.getContext("2d");
+          context.beginPath();
+          context.fillStyle='red';
+          context.fillRect(50, 50, this.width, this.height);
+          context.closePath();
+        }
+      }
+      let rect = new Rectangle(width, height);
+      result.innerText =
+      "Perimeter of rectangle is: " +
+      rect.getPerimeter() +
+      " , Area of rectangle is: " +
+      rect.getArea();
+      btn.addEventListener('click',function(){
+          rect.drawRect();
+      })
+    }
+    </script>
+  </body>
+</html>

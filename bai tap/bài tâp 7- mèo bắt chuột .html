@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name,weight,speed){
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+            } 
+        }
+        class Mouse extends Animal{
+            constructor(name,weight,speed,status){
+                super(name,weight,speed)
+                this.status = status;
+            }
+            getStatus(){
+                alert("Mouse "+ this.status);
+                return this.status
+            }
+            setStatus(newStatus){
+                return this.status = newStatus;
+            }
+            sound(mess){
+                alert('Mouse ' + mess);
+            }
+            getSpeed(){
+                alert(mouse.name + "'s is " + this.speed + " unit speed");
+            }
+            getWeight(){
+                return this.weight;
+            }
+        }
+        let mouse = new Mouse('Jerry',5,2,'alive');
+        class Cat extends Animal{
+            constructor(name,weight,speed,status){
+                super(name,weight,speed);
+                this.status = status;
+            }
+            getSpeed(){
+                alert(cat.name+ "'s speed is " + this.speed +" unit speed");
+                return this.speed;
+            }
+            getStatus(){
+                alert("Cat " + this.status);
+            }
+            setStatus(newSta){
+                return this.status = newSta;
+            }
+            sound(text){
+                alert('Cat ' + text);
+            }
+            catchMouse(){
+                if(this.speed > mouse.speed){
+                    alert(cat.name + ' caught the ' + mouse.name);
+                }
+            }
+            eatMouse(){
+                if(mouse.status == 'alive'){
+                    this.weight += mouse.weight;
+                    alert(cat.name + "'s weight is " + this.weight);
+                    alert("The end !");
+                }
+            }
+        }
+        let cat = new Cat('Tom',10,3,'alive')
+        function mouseAndCat(){
+            mouse.getStatus();
+            cat.getStatus();
+            mouse.sound("chit chit");
+            cat.sound("meo meo")
+            mouse.getSpeed();
+            cat.getSpeed();
+            cat.catchMouse();
+            cat.eatMouse();
+        }
+        mouseAndCat();
+    </script>
+</body>
+</html>

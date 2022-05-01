@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Apple {
+        constructor(weight) {
+          this.weight = weight;
+        }
+        getWeight() {
+          alert("This is apple " + this.weight + " pound");
+          return this.weight;
+        }
+        isEmpty() {
+          if (this.weight == 0) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        decrease() {
+          return this.weight--;
+        }
+      }
+      let apple = new Apple(10);
+      class Human {
+        constructor(name, gender, weight) {
+          this.name = name;
+          this.gender = gender;
+          this.weight = weight;
+        }
+        checkApple(obj) {
+          if (apple.isEmpty()) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+        eatApple(object) {
+          if (adam.checkApple() == false) {
+            alert(adam.name + " eat Apple!")
+            apple.decrease();
+            apple.getWeight();
+            this.weight++;
+          } else {
+            alert("The end");
+          }
+        }
+        getName() {
+          return this.name;
+        }
+        setName(newName) {
+          return (this.name = newName);
+        }
+        isMale() {
+          if (this.gender == "Male") {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        setGender(newGender) {
+          return (this.gender = newGender);
+        }
+        say() {
+          alert("Hi am " + this.name);
+        }
+        getWeight() {
+          alert(adam.name+"'s weight is " + this.weight);
+        }
+        setWeight(newWeight) {
+          return (this.weight = newWeight);
+        }
+      }
+      let adam = new Human("Adam", "Male", 60);
+        adam.say();
+        adam.getWeight();
+        apple.getWeight();
+        while(apple.weight > 0){
+        adam.eatApple(apple);
+        adam.getWeight();
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="result"></div>
+   <script>
+     let d =30;
+     class Person{
+       constructor(image,width,height,left,top){
+         this.image = image;
+         this.width = width;
+         this.height = height;
+         this.left = left;
+         this.top = top;
+       }
+       moveRight(){
+            this.left += d;
+            console.log(this.left);
+       }
+       moveDown(){
+         this.top += d;
+         console.log(this.top);
+       }
+       moveLeft(){
+         this.left -= d;
+         console.log(this.left);
+       }
+       moveTop(){
+         this.top -= d;
+         console.log(this.top);
+       }
+       isMoving(){
+         let str =''
+         str +='<image src="'+this.image+'"'
+              + 'width="'+ this.width +'px"; '
+              + 'height="'+this.height +'px"; '
+              + 'style="top:' + this.top+ 'px; '
+              + 'left:' + this.left + 'px; position:absolute;">'
+          return str;
+       }
+     }
+     let person = new Person('nezuko.jpg',200,200,20,30);
+     function display(){
+        if(person.left < window.innerWidth - person.width && person.top==30){
+          person.moveRight();
+        } else if(person.left > window.innerHeight - person.height && person.top<window.innerHeight - person.height){
+          person.moveDown();
+        } else if(person.top > window.innerHeight - person.height && person.left >0){
+          person.moveLeft();
+        } else if(person.left < 0){
+          person.moveTop();
+        }
+        document.getElementById('result').innerHTML = person.isMoving(); 
+        setTimeout(display,50);
+     }
+     display();
+   </script>
+</body>
+</html>
